@@ -49,3 +49,6 @@ Invoke-WebRequest `
 -OutFile $cmtraceoutput `
 -UseBasicParsing `
 -Headers @{"Cache-Control"="no-cache"}
+
+##Setup Complete
+Write-Host "Setup Complete"
