@@ -45,7 +45,7 @@ Install-Script -Name Get-AutopilotDiagnostics -Force
 
 ##Download CMTrace
 Invoke-WebRequest `
--Uri "https://github.com/andrew-s-taylor/public/raw/main/Troubleshooting/CMTrace.exe" `
+-Uri "https://github.com/moskovskayax3/Stuff/raw/main/Tools/cmtrace.exe" `
 -OutFile $cmtraceoutput `
 -UseBasicParsing `
 -Headers @{"Cache-Control"="no-cache"}
