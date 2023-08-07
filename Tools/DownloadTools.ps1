@@ -21,21 +21,21 @@ N/A
 #>
 
 ##Create a folder to store everything
-$toolsfolder = "C:\ProgramData\TroubleshootingBox"
+$SupportTools = "C:\ProgramData\SupportTools"
 If (Test-Path $toolsfolder) {
     Write-Output "$toolsfolder exists. Skipping."
 }
 Else {
-    Write-Output "The folder '$toolsfolder' doesn't exist. This folder will be used for storing logs created after the script runs. Creating now."
+    Write-Output "The folder '$SupportTools' doesn't exist. This folder will be used for storing logs created after the script runs. Creating now."
     Start-Sleep 1
-    New-Item -Path "$toolsfolder" -ItemType Directory
-    Write-Output "The folder $toolsfolder was successfully created."
+    New-Item -Path "$SupportTools" -ItemType Directory
+    Write-Output "The folder $SupportTools was successfully created."
 }
 ##To install scripts
 set-executionpolicy remotesigned -Force
 
 ##Set download locations
-$cmtraceoutput = "C:\ProgramData\TroubleshootingBox\cmtrace.exe"
+$cmtraceoutput = "C:\ProgramData\SupportTools\cmtrace.exe"
 
 ##Force install NuGet (no popups)
 install-packageprovider -Name NuGet -MinimumVersion 2.8.5.201 -Force
@@ -45,7 +45,7 @@ Install-Script -Name Get-AutopilotDiagnostics -Force
 
 ##Download CMTrace
 Invoke-WebRequest `
--Uri "https://github.com/moskovskayax3/Stuff/raw/main/Tools/cmtrace.exe" `
+-Uri "https://github.com/moskovskayax3/Support-Tools/raw/main/Tools/cmtrace.exe" `
 -OutFile $cmtraceoutput `
 -UseBasicParsing `
 -Headers @{"Cache-Control"="no-cache"}
